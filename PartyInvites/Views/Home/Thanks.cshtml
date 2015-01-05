@@ -1,0 +1,54 @@
+﻿@using PartyInvites.Models
+@model PartyInvites.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css"/>
+    <link rel="stylesheet" href="~/Content/bootstrap.css"/>
+    <link rel="stylesheet" href="~/Content/bootstrap-theme.css"/>
+    <title>Thanks</title>
+    <style>
+        body {background-color: #696969;}
+    </style>
+</head>
+    <body>
+        @{
+            try
+            {
+                WebMail.SmtpServer = "smtp.example.com";
+                WebMail.SmtpPort = 587;
+                WebMail.EnableSsl = true;
+                WebMail.UserName = "mySmtpUserName";
+                WebMail.Password = "mySmtpPassword";
+                WebMail.From = "moinulmithu@yahoo.com";
+                
+                WebMail.Send("moinulmithu@gmail.com", "RSVP Notification", Model.Name + "is" + ((Model.WillAttend ?? false) ? "" : "No") + "attending");
+            }
+            catch (Exception)
+            {
+  
+                @:<b>Sorry we can't send your e-mail to confirm your RSVP</b>
+            }
+        }
+        <div class="text-center">
+            <h1>Thank You, @Model.Name</h1>
+            <div class="lead">
+                @if (Model.WillAttend == true)
+                {
+                    @: Its great you are coming. The cans are in the fridge!!!!!!!!!!
+                }
+                else
+                {
+                    @: Sorry to hear that you won't come but thanks for let us know.
+                }
+            </div>
+        </div>
+    </body>
+</html>

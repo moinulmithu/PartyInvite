@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<!Doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="widht=device-width"/>
+        <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+        <link href="~/Content/bootstrap-theme.css" rel="stylesheet"/>
+        <title>Index</title>
+        <style>
+            .btn a {color: white; text-decoration: none}
+            body {background-color: #f1f1f1;}
+        </style>
+    </head>
+    <body>
+        <div class="text-center">
+            @ViewBag.Greeting Friends
+            <p>I am going to arrange a get-together party on next Friday</p>
+
+            <div class="btn btn-success">
+                @Html.ActionLink("RSVP now", "RsvpForm")
+            </div>
+        </div>
+    </body>
+</html>
+
