@@ -13,7 +13,7 @@ namespace PartyInvites.Models
         [Required(ErrorMessage ="Your Email address can't be empty. please enter a valid email address")]
         [RegularExpression(".+\\@.+\\..+",ErrorMessage = "Please enter a valid email address")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Please enter your Phone No.")]
+        [Required(ErrorMessage = "Please enter your Phone No. Phone number must be numeric")]
         public string Phone { get; set; }
         [Required(ErrorMessage ="Please specify wheather you come or not???? hurryup")]
         public bool? WillAttend { get; set; }
